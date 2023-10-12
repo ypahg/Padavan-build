@@ -39,8 +39,15 @@ jobs:
         else
         git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
         fi
+        
+        if [ ! -f /opt/rt-n56u/trunk/tools/go/go1.15.2.linux-amd64.tar.gz ]; then
+          echo '下载go '
+          curl --create-dirs -L https://go.p2hp.com/dl/go1.15.2.linux-amd64.tar.gz -o /opt/rt-n56u/trunk/tools/go/go1.15.2.linux-amd64.tar.gz
+          tar zxfv /opt/rt-n56u/trunk/tools/go/go1.15.2.linux-amd64.tar.gz -C go ;
+        fi
+        
         cd /opt/rt-n56u/toolchain-mipsel
-        sh dl_toolchain.sh
+        
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
