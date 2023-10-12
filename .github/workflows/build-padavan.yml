@@ -42,7 +42,8 @@ jobs:
         
         if [ ! -f /opt/rt-n56u/trunk/tools/go/go1.15.2.linux-amd64.tar.gz ]; then
           echo '下载go '
-          curl --create-dirs -L https://go.p2hp.com/dl/go1.15.2.linux-amd64.tar.gz -o /opt/rt-n56u/trunk/tools/go/go1.15.2.linux-amd64.tar.gz
+          cd /opt/rt-n56u/trunk/tools
+          curl --create-dirs -L https://go.p2hp.com/dl/go1.15.2.linux-amd64.tar.gz -o /opt/rt-n56u/trunk/tools/go/go1.15.2.linux-amd64.tar.gz 
           tar zxfv /opt/rt-n56u/trunk/tools/go/go1.15.2.linux-amd64.tar.gz -C go ;
         fi
         
